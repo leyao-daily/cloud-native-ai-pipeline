@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>core.processors package &#8212; Cloud Native AI Pipeline  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="core-processors-package">
+<h1>core.processors package<a class="headerlink" href="#core-processors-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-core.processors.category_list">
+<span id="core-processors-category-list-module"></span><h2>core.processors.category_list module<a class="headerlink" href="#module-core.processors.category_list" title="Permalink to this headline">¶</a></h2>
+<p>A dictionary object representing the drawing category list.</p>
+<p>This dictionary object maps the category ID to the category name.</p>
+</section>
+<section id="module-core.processors.postprocessor">
+<span id="core-processors-postprocessor-module"></span><h2>core.processors.postprocessor module<a class="headerlink" href="#module-core.processors.postprocessor" title="Permalink to this headline">¶</a></h2>
+<p>A Postprocessor module.</p>
+<p>This module provides an object-oriented design for postprocessing the outputs of
+machine learning models.</p>
+<dl>
+<dt>Classes:</dt><dd><p>Postprocessor: An abstract base class for creating custom postprocessing implementations.
+ObjectDetectionPostprocessor: A concrete class implementing the Postprocessor for object</p>
+<blockquote>
+<div><p>detection model outputs.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>FaceRecognitionPostprocessor: A concrete class implementing the Postprocessor for face</dt><dd><p>recognition model outputs.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.processors.postprocessor.FaceRecognitionPostprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.processors.postprocessor.</span></span><span class="sig-name descname"><span class="pre">FaceRecognitionPostprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drawing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.processors.postprocessor.FaceRecognitionPostprocessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.processors.postprocessor.Postprocessor" title="core.processors.postprocessor.Postprocessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.processors.postprocessor.Postprocessor</span></code></a></p>
+<p>A concrete class implementing the Postprocessor for face recognition model outputs.</p>
+<p>This class implement <cite>postprocess</cite> method defined in <cite>Postprocessor</cite> abstract base class
+for face recognition model outputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>_drawing</strong> (<em>dict</em>) – A dict object representing the drawing configuration.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.processors.postprocessor.FaceRecognitionPostprocessor.postprocess">
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#core.processors.postprocessor.FaceRecognitionPostprocessor.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the postprocess method for face recognition model outputs.</p>
+<p>The method overrides the <cite>postprocess</cite> method defined in <cite>Postprocessor</cite>
+abstract base class.
+Postprocess the output by drawing boxes and labels on the input frame for
+object detection.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="core.processors.postprocessor.ObjectDetectionPostprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.processors.postprocessor.</span></span><span class="sig-name descname"><span class="pre">ObjectDetectionPostprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">drawing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.processors.postprocessor.ObjectDetectionPostprocessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#core.processors.postprocessor.Postprocessor" title="core.processors.postprocessor.Postprocessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.processors.postprocessor.Postprocessor</span></code></a></p>
+<p>A concrete class implementing the Postprocessor for object detection model outputs.</p>
+<p>This class implement <cite>postprocess</cite> method defined in <cite>Postprocessor</cite> abstract base class
+for object detection model outputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>_drawing</strong> (<em>dict</em>) – A dict object representing the drawing configuration.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.processors.postprocessor.ObjectDetectionPostprocessor.postprocess">
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#core.processors.postprocessor.ObjectDetectionPostprocessor.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the postprocess method for object detection model outputs.</p>
+<p>The method overrides the <cite>postprocess</cite> method defined in <cite>Postprocessor</cite>
+abstract base class.
+Postprocess the output by drawing boxes and labels on the input frame for
+object detection.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="core.processors.postprocessor.Postprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.processors.postprocessor.</span></span><span class="sig-name descname"><span class="pre">Postprocessor</span></span><a class="headerlink" href="#core.processors.postprocessor.Postprocessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>An abstract base class for creating custom postprocessing implementations.</p>
+<p>This class serves as a blueprint for subclasses that need to implement
+<cite>postprocess</cite> method for different types of postprocessing tasks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.processors.postprocessor.Postprocessor.postprocess">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#core.processors.postprocessor.Postprocessor.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Postprocess the output by applying specific operations on the input frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame</strong> (<em>np.ndarray</em>) – An np.ndarray object representing the input frame.</p></li>
+<li><p><strong>outputs</strong> (<em>dict</em>) – A dictionary object representing the output from the model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An np.ndarray object representing the postprocessed frame.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NotImplementedError</strong> – If the subclasses don’t implement the method.</p></li>
+<li><p><strong>KeyError</strong> – If missing key in outputs.</p></li>
+<li><p><strong>RuntimeError</strong> – If any errors during postprocessing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-core.processors.preprocessor">
+<span id="core-processors-preprocessor-module"></span><h2>core.processors.preprocessor module<a class="headerlink" href="#module-core.processors.preprocessor" title="Permalink to this headline">¶</a></h2>
+<p>A Preprocessor module.</p>
+<p>This module provides an object-oriented design for preprocessing the input data
+for machine learning models.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>Preprocessor: An abstract base class for creating custom preprocessoring implementations.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="core.processors.preprocessor.Preprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">core.processors.preprocessor.</span></span><span class="sig-name descname"><span class="pre">Preprocessor</span></span><a class="headerlink" href="#core.processors.preprocessor.Preprocessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>An abstract base class for creating custom preprocessoring implementations.</p>
+<p>This class serves as a blueprint for subclasses that need to implement
+<cite>preprocess</cite> method for different types of preprocessing tasks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="core.processors.preprocessor.Preprocessor.preprocess">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#core.processors.preprocessor.Preprocessor.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preprocess the input frame before feeding it to the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<em>np.ndarray</em>) – An np.ndarray object representing the input frame.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An np.ndarray object representing the preprocessed frame.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If the subclasses don’t implement the method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-core.processors">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-core.processors" title="Permalink to this headline">¶</a></h2>
+<p>The core.processors package.</p>
+<p>This package contains the implementations of processors, which are used
+to process the output from model inference.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Cloud Native AI Pipeline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Intel CSS Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/core/core.processors.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
