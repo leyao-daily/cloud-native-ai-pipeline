@@ -18,7 +18,7 @@ It is extended for the following uses:
 - Trusted AI pipeline to protect input stream or model in TEE VM/Container
 - Sustainable AI computing to reduce carbon footprint for AI workloads
 
-.. image:: cnap_uses.png
+.. image:: cnap-uses.png
    :alt: CNAP Uses Cases
    :align: center
 
