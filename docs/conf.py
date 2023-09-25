@@ -27,7 +27,8 @@ author = 'Intel CSE CSS Team'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.napoleon', 'sphinx.ext.autodoc']
+extensions = ['sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx_markdown_builder',
+        'sphinx_mdinclude']
 
 napoleon_google_docstring = True
 napoleon_use_param = False
